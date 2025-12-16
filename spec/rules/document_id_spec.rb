@@ -7,7 +7,7 @@ describe Preflight::Rules::DocumentId do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     chk      = Preflight::Rules::DocumentId.new
 
-    chk.check_hash(ohash).should_not be_empty
+    expect(chk.check_hash(ohash)).not_to be_empty
   end
 
   it "pass files with a document ID in the trailer" do
@@ -15,7 +15,7 @@ describe Preflight::Rules::DocumentId do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     chk      = Preflight::Rules::DocumentId.new
 
-    chk.check_hash(ohash).should be_empty
+    expect(chk.check_hash(ohash)).to be_empty
   end
 
 end

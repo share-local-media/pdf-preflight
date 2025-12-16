@@ -7,7 +7,7 @@ describe Preflight::Rules::MaxVersion do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     chk      = Preflight::Rules::MaxVersion.new("1.3")
 
-    chk.check_hash(ohash).should_not be_empty
+    expect(chk.check_hash(ohash)).to_not be_empty
   end
 
   it "correctly pass files with an equal version" do
@@ -15,7 +15,7 @@ describe Preflight::Rules::MaxVersion do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     chk      = Preflight::Rules::MaxVersion.new("1.4")
 
-    chk.check_hash(ohash).should be_empty
+    expect(chk.check_hash(ohash)).to be_empty
   end
 
   it "correctly pass files with a lower version" do
@@ -23,7 +23,7 @@ describe Preflight::Rules::MaxVersion do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     chk      = Preflight::Rules::MaxVersion.new("1.5")
 
-    chk.check_hash(ohash).should be_empty
+    expect(chk.check_hash(ohash)).to be_empty
   end
 
 end

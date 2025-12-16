@@ -11,23 +11,23 @@ describe Preflight::Issue do
     end
 
     it "should return the description" do
-      issue.description.should == "Transparency detected"
+      expect(issue.description).to eq("Transparency detected")
     end
 
     it "should return the rule as a symbol" do
-      issue.rule.should == :"Preflight::Rules::NoTransparency"
+      expect(issue.rule).to eq(:"Preflight::Rules::NoTransparency")
     end
 
     it "should return the attributes" do
-      issue.attributes.should == {:page => 1}
+      expect(issue.attributes).to eq({:page => 1})
     end
 
     it "should return the attributes via methods" do
-      issue.page.should == 1
+      expect(issue.page).to eq(1)
     end
 
     it "should return true to a respond_to? call" do
-      issue.respond_to?(:page).should be_true
+      expect(issue.respond_to?(:page)).to be(true)
     end
 
   end

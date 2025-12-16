@@ -12,7 +12,7 @@ describe Preflight::Rules::NoSeparation do
         reader.page(1).walk(rule)
       end
 
-      rule.issues.should have(1).item
+      expect(rule.issues.size).to eq(1)
     end
   end
 
@@ -26,7 +26,7 @@ describe Preflight::Rules::NoSeparation do
         reader.page(2).walk(rule)
       end
 
-      rule.issues.should have(1).item
+      expect(rule.issues.size).to eq(1)
     end
 
     it "should return the separation name in the issue" do
@@ -37,7 +37,7 @@ describe Preflight::Rules::NoSeparation do
       end
 
       issue = rule.issues.first
-      issue.name.should == :"PANTONE 1788 M"
+      expect(issue.name).to eq(:"PANTONE 1788 M")
     end
   end
 
@@ -51,7 +51,7 @@ describe Preflight::Rules::NoSeparation do
         reader.page(3).walk(rule)
       end
 
-      rule.issues.should have(1).item
+      expect(rule.issues.size).to eq(1)
     end
 
     it "should return the separation name in the issue" do
@@ -62,7 +62,7 @@ describe Preflight::Rules::NoSeparation do
       end
 
       issue = rule.issues.first
-      issue.name.should == :Orange
+      expect(issue.name).to eq(:Orange)
     end
   end
 
@@ -76,7 +76,7 @@ describe Preflight::Rules::NoSeparation do
         reader.page(4).walk(rule)
       end
 
-      rule.issues.should have(1).item
+      expect(rule.issues.size).to eq(1)
     end
 
     it "should return the separation name in the issue" do
@@ -87,7 +87,7 @@ describe Preflight::Rules::NoSeparation do
       end
 
       issue = rule.issues.first
-      issue.name.should == :Orange
+      expect(issue.name).to eq(:Orange)
     end
   end
 
@@ -101,7 +101,7 @@ describe Preflight::Rules::NoSeparation do
         reader.page(5).walk(rule)
       end
 
-      rule.issues.should have(1).item
+      expect(rule.issues.size).to eq(1)
     end
 
     it "should return the separation name in the issue" do
@@ -112,7 +112,7 @@ describe Preflight::Rules::NoSeparation do
       end
 
       issue = rule.issues.first
-      issue.name.should == :Yellow
+      expect(issue.name).to eq(:Yellow)
     end
   end
 
@@ -126,7 +126,7 @@ describe Preflight::Rules::NoSeparation do
         reader.page(1).walk(rule)
       end
 
-      rule.issues.should be_empty
+      expect(rule.issues.size).to eq(0)
     end
   end
 
@@ -140,7 +140,7 @@ describe Preflight::Rules::NoSeparation do
         reader.page(2).walk(rule)
       end
 
-      rule.issues.should be_empty
+      expect(rule.issues.size).to eq(0)
     end
   end
 
@@ -154,7 +154,7 @@ describe Preflight::Rules::NoSeparation do
         reader.page(3).walk(rule)
       end
 
-      rule.issues.should be_empty
+      expect(rule.issues.size).to eq(0)
     end
   end
 
@@ -168,7 +168,7 @@ describe Preflight::Rules::NoSeparation do
         reader.page(4).walk(rule)
       end
 
-      rule.issues.should be_empty
+      expect(rule.issues.size).to eq(0)
     end
   end
 
@@ -182,7 +182,7 @@ describe Preflight::Rules::NoSeparation do
         reader.page(5).walk(rule)
       end
 
-      rule.issues.should be_empty
+      expect(rule.issues.size).to eq(0)
     end
   end
 
@@ -196,7 +196,7 @@ describe Preflight::Rules::NoSeparation do
         reader.page(6).walk(rule)
       end
 
-      rule.issues.should be_empty
+      expect(rule.issues.size).to eq(0)
     end
   end
 

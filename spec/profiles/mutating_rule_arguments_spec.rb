@@ -13,9 +13,9 @@ describe "A profile with a rule that mutates it's arguments" do
   it "passes a valid file 2 consequtive times" do
     filename  = pdf_spec_file("version_1_3")
     preflight = MutatingProfile.new
-    preflight.check(filename).should be_empty
+    expect(preflight.check(filename)).to be_empty
 
     preflight = MutatingProfile.new
-    preflight.check(filename).should be_empty
+    expect(preflight.check(filename)).to be_empty
   end
 end

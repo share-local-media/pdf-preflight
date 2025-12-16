@@ -8,7 +8,7 @@ describe Preflight::Rules::BoxPresence do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should be_empty
+      expect(rule.issues).to be_empty
     end
   end
 
@@ -18,7 +18,7 @@ describe Preflight::Rules::BoxPresence do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should be_empty
+      expect(rule.issues).to be_empty
     end
   end
 
@@ -28,11 +28,11 @@ describe Preflight::Rules::BoxPresence do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should_not be_empty
+      expect(rule.issues).not_to be_empty
       issue = rule.issues[0]
-      issue.rule.should == :"Preflight::Rules::BoxPresence"
-      issue.page.should == 1
-      issue.description.should == "page must have any of ArtBox"
+      expect(issue.rule).to eq(:"Preflight::Rules::BoxPresence")
+      expect(issue.page).to eq(1)
+      expect(issue.description).to eq("page must have any of ArtBox")
     end
 
   end
@@ -43,11 +43,11 @@ describe Preflight::Rules::BoxPresence do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should_not be_empty
+      expect(rule.issues).not_to be_empty
       issue = rule.issues[0]
-      issue.rule.should == :"Preflight::Rules::BoxPresence"
-      issue.page.should == 1
-      issue.description.should == "page must have all of ArtBox, CropBox"
+      expect(issue.rule).to eq(:"Preflight::Rules::BoxPresence")
+      expect(issue.page).to eq(1)
+      expect(issue.description).to eq("page must have all of ArtBox, CropBox")
     end
 
   end

@@ -28,13 +28,13 @@ describe Preflight::Rules::MatchInfoPdfxVersions do
     let(:filename) { pdf_spec_file("no_document_id") }
 
     it "returns an list of errors" do
-      chk.check_hash(ohash).should_not be_empty
+      expect(chk.check_hash(ohash)).to_not be_empty
     end
 
     it "includes format-specific errors" do
       errors = chk.check_hash(ohash)
 
-      errors.each { |error|  error.description[/Invalid file for PDFX_(1a|4)*/].should_not be_empty }
+      errors.each { |error|  expect(error.description[/Invalid file for PDFX_(1a|4)*/]).to_not be_nil }
     end
   end
 
@@ -58,10 +58,12 @@ describe Preflight::Rules::MatchInfoPdfxVersions do
       errors = chk.check_hash(ohash)
 
       pdfx_1a_error = errors.first.description
-      pdfx_4_error  = errors.last.description
+      expect(pdfx_1a_error).to include("Invalid file for PDFX_1a")
+      expect(pdfx_1a_error).to include("max_version: 1.3, current_version: 1.4")
 
-      pdfx_1a_error[/Invalid file for PDFX_1a(.)+max_version=>1\.3(.)+current_version=>1\.4/].should_not be_nil
-      pdfx_4_error[/PDFX_4(.)+invalid(.)+key=>:GTS_PDFXVersion/].should_not be_nil
+      pdfx_4_error  = errors.last.description
+      expect(pdfx_4_error).to include("Invalid file for PDFX_4")
+      expect(pdfx_4_error).to match(/GTS_PDFXVersion/)
     end
   end
 
@@ -69,7 +71,7 @@ describe Preflight::Rules::MatchInfoPdfxVersions do
     let(:filename) { pdf_spec_file("pdfx-1a-subsetting") }
 
     it "succeeds if file is compliant with PDFX-1A version" do
-      chk.check_hash(ohash).should be_empty
+      expect(chk.check_hash(ohash)).to be_empty
     end
   end
 
@@ -77,7 +79,7 @@ describe Preflight::Rules::MatchInfoPdfxVersions do
     let(:filename) { pdf_spec_file("pdfx-4") }
 
     it "succeeds if file is compliant with PDFX-4 version" do
-      chk.check_hash(ohash).should be_empty
+      expect(chk.check_hash(ohash)).to be_empty
     end
   end
 end

@@ -8,7 +8,7 @@ describe Preflight::Rules::MinPpi do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should be_empty
+      expect(rule.issues).to be_empty
     end
   end
 
@@ -18,7 +18,7 @@ describe Preflight::Rules::MinPpi do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should be_empty
+      expect(rule.issues).to be_empty
     end
   end
 
@@ -28,15 +28,15 @@ describe Preflight::Rules::MinPpi do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should have(1).item
+      expect(rule.issues.size).to eq(1)
 
       issue = rule.issues.first
-      issue.horizontal_ppi.should == 72.0
-      issue.vertical_ppi.should   == 72.0
-      issue.top_left.should       == [36.0, 586.0]
-      issue.bottom_left.should    == [36, 133]
-      issue.bottom_right.should   == [640,133]
-      issue.top_right.should      == [640, 586]
+      expect(issue.horizontal_ppi).to eq(72.0)
+      expect(issue.vertical_ppi).to eq(72.0)
+      expect(issue.top_left).to eq([36.0, 586.0])
+      expect(issue.bottom_left).to eq([36, 133])
+      expect(issue.bottom_right).to eq([640,133])
+      expect(issue.top_right).to eq([640, 586])
     end
   end
 
@@ -46,15 +46,15 @@ describe Preflight::Rules::MinPpi do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.size.should == 1
+      expect(rule.issues.size).to eq(1)
 
       issue = rule.issues.first
-      issue.horizontal_ppi.should == 148.151
-      issue.vertical_ppi.should   == 148.151
-      issue.top_left.should       == [250.24502999999999, 492.52378999999996]
-      issue.bottom_left.should    == [250.24502999999999, 401.64329]
-      issue.bottom_right.should   == [323.14383999999995, 401.64329]
-      issue.top_right.should      == [323.14383999999995, 492.52378999999996]
+      expect(issue.horizontal_ppi).to eq(148.151)
+      expect(issue.vertical_ppi).to eq(148.151)
+      expect(issue.top_left).to eq([250.24502999999999, 492.52378999999996])
+      expect(issue.bottom_left).to eq([250.24502999999999, 401.64329])
+      expect(issue.bottom_right).to eq([323.14383999999995, 401.64329])
+      expect(issue.top_right).to eq([323.14383999999995, 492.52378999999996])
     end
   end
 
@@ -64,7 +64,7 @@ describe Preflight::Rules::MinPpi do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should be_empty
+      expect(rule.issues.size).to eq(0)
     end
   end
 

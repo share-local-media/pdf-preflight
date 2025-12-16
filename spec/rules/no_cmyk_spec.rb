@@ -12,7 +12,7 @@ describe Preflight::Rules::NoCmyk do
         reader.page(1).walk(rule)
       end
 
-      rule.issues.should have(1).item
+      expect(rule.issues.size).to eq(1)
     end
   end
 
@@ -26,7 +26,7 @@ describe Preflight::Rules::NoCmyk do
         reader.page(2).walk(rule)
       end
 
-      rule.issues.should have(1).item
+      expect(rule.issues.size).to eq(1)
     end
   end
 
@@ -40,7 +40,7 @@ describe Preflight::Rules::NoCmyk do
         reader.page(3).walk(rule)
       end
 
-      rule.issues.should have(1).item
+      expect(rule.issues.size).to eq(1)
     end
   end
 
@@ -54,7 +54,7 @@ describe Preflight::Rules::NoCmyk do
         reader.page(4).walk(rule)
       end
 
-      rule.issues.should have(1).item
+      expect(rule.issues.size).to eq(1)
     end
   end
 
@@ -68,7 +68,7 @@ describe Preflight::Rules::NoCmyk do
         reader.page(5).walk(rule)
       end
 
-      rule.issues.should have(1).item
+      expect(rule.issues.size).to eq(1)
     end
   end
 
@@ -82,7 +82,7 @@ describe Preflight::Rules::NoCmyk do
         reader.page(6).walk(rule)
       end
 
-      rule.issues.should have(1).item
+      expect(rule.issues.size).to eq(1)
     end
   end
 
@@ -96,7 +96,7 @@ describe Preflight::Rules::NoCmyk do
         reader.page(7).walk(rule)
       end
 
-      rule.issues.should have(1).item
+      expect(rule.issues.size).to eq(1)
     end
   end
 
@@ -110,7 +110,7 @@ describe Preflight::Rules::NoCmyk do
         reader.page(8).walk(rule)
       end
 
-      rule.issues.should have(1).item
+      expect(rule.issues.size).to eq(1)
     end
   end
 
@@ -124,7 +124,7 @@ describe Preflight::Rules::NoCmyk do
         reader.page(1).walk(rule)
       end
 
-      rule.issues.should be_empty
+      expect(rule.issues.size).to eq(0)
     end
   end
 
@@ -138,7 +138,7 @@ describe Preflight::Rules::NoCmyk do
         reader.page(2).walk(rule)
       end
 
-      rule.issues.should be_empty
+      expect(rule.issues.size).to eq(0)
     end
   end
 
@@ -152,7 +152,7 @@ describe Preflight::Rules::NoCmyk do
         reader.page(3).walk(rule)
       end
 
-      rule.issues.should be_empty
+      expect(rule.issues.size).to eq(0)
     end
   end
 
@@ -166,7 +166,7 @@ describe Preflight::Rules::NoCmyk do
         reader.page(4).walk(rule)
       end
 
-      rule.issues.should be_empty
+      expect(rule.issues.size).to eq(0)
     end
   end
 
@@ -180,7 +180,7 @@ describe Preflight::Rules::NoCmyk do
         reader.page(5).walk(rule)
       end
 
-      rule.issues.should be_empty
+      expect(rule.issues.size).to eq(0)
     end
   end
 
@@ -194,7 +194,7 @@ describe Preflight::Rules::NoCmyk do
         reader.page(6).walk(rule)
       end
 
-      rule.issues.should be_empty
+      expect(rule.issues.size).to eq(0)
     end
   end
 

@@ -7,7 +7,7 @@ describe Preflight::Rules::RootHasKeys do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     chk      = Preflight::Rules::RootHasKeys.new(:OutputIntents)
 
-    chk.check_hash(ohash).should_not be_empty
+    expect(chk.check_hash(ohash)).to_not be_empty
   end
 
   it "pass files with no GTS_PDFXVersion entry in the Info dict" do
@@ -15,7 +15,7 @@ describe Preflight::Rules::RootHasKeys do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     chk      = Preflight::Rules::RootHasKeys.new(:OutputIntents)
 
-    chk.check_hash(ohash).should be_empty
+    expect(chk.check_hash(ohash)).to be_empty
   end
 
 end

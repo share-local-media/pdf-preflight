@@ -13,9 +13,7 @@ describe "Profile with an invalid rule" do
   it "should raise an exception" do
     filename = pdf_spec_file("version_1_4")
     preflight = InvalidProfile.new
-    lambda {
-      preflight.check(filename)
-    }.should raise_error(RuntimeError)
+    expect { preflight.check(filename) }.to raise_error(RuntimeError)
   end
 
 end

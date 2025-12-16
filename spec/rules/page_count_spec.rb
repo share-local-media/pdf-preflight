@@ -7,7 +7,7 @@ describe Preflight::Rules::PageCount do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     rule     = Preflight::Rules::PageCount.new(1)
 
-    rule.check_hash(ohash).should be_empty
+    expect(rule.check_hash(ohash)).to be_empty
   end
 
   it "should fail files with incorrect page count specified by Fixnum" do
@@ -15,7 +15,7 @@ describe Preflight::Rules::PageCount do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     rule     = Preflight::Rules::PageCount.new(2)
 
-    rule.check_hash(ohash).should_not be_empty
+    expect(rule.check_hash(ohash)).to_not be_empty
   end
 
   it "should pass files with correct page count specified by range" do
@@ -23,7 +23,7 @@ describe Preflight::Rules::PageCount do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     rule     = Preflight::Rules::PageCount.new(1..2)
 
-    rule.check_hash(ohash).should be_empty
+    expect(rule.check_hash(ohash)).to be_empty
   end
 
   it "should fail files with incorrect page count specified by range" do
@@ -31,7 +31,7 @@ describe Preflight::Rules::PageCount do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     rule     = Preflight::Rules::PageCount.new(2..3)
 
-    rule.check_hash(ohash).should_not be_empty
+    expect(rule.check_hash(ohash)).to_not be_empty
   end
 
   it "should pass files with correct page count specified by array" do
@@ -39,7 +39,7 @@ describe Preflight::Rules::PageCount do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     rule     = Preflight::Rules::PageCount.new([1, 2])
 
-    rule.check_hash(ohash).should be_empty
+    expect(rule.check_hash(ohash)).to be_empty
   end
 
   it "should fail files with incorrect page count specified by array" do
@@ -47,7 +47,7 @@ describe Preflight::Rules::PageCount do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     rule     = Preflight::Rules::PageCount.new([2, 3])
 
-    rule.check_hash(ohash).should_not be_empty
+    expect(rule.check_hash(ohash)).to_not be_empty
   end
 
   it "should pass files with correct page count specified by :odd" do
@@ -55,7 +55,7 @@ describe Preflight::Rules::PageCount do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     rule     = Preflight::Rules::PageCount.new(:odd)
 
-    rule.check_hash(ohash).should be_empty
+    expect(rule.check_hash(ohash)).to be_empty
   end
 
   it "should fail files with correct page count specified by :odd" do
@@ -63,7 +63,7 @@ describe Preflight::Rules::PageCount do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     rule     = Preflight::Rules::PageCount.new(:odd)
 
-    rule.check_hash(ohash).should_not be_empty
+    expect(rule.check_hash(ohash)).to_not be_empty
   end
 
   it "should pass files with correct page count specified by :even" do
@@ -71,7 +71,7 @@ describe Preflight::Rules::PageCount do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     rule     = Preflight::Rules::PageCount.new(:even)
 
-    rule.check_hash(ohash).should be_empty
+    expect(rule.check_hash(ohash)).to be_empty
   end
 
   it "should fail files with correct page count specified by :even" do
@@ -79,7 +79,7 @@ describe Preflight::Rules::PageCount do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     rule     = Preflight::Rules::PageCount.new(:even)
 
-    rule.check_hash(ohash).should_not be_empty
+    expect(rule.check_hash(ohash)).to_not be_empty
   end
 
 end

@@ -7,7 +7,7 @@ describe Preflight::Rules::NoFontSubsets do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     chk      = Preflight::Rules::NoFontSubsets.new
 
-    chk.check_hash(ohash).should_not be_empty
+    expect(chk.check_hash(ohash)).not_to be_empty
   end
 
   it "pass files with a complete TTF font" do
@@ -15,7 +15,7 @@ describe Preflight::Rules::NoFontSubsets do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     chk      = Preflight::Rules::NoFontSubsets.new
 
-    chk.check_hash(ohash).should be_empty
+    expect(chk.check_hash(ohash)).to be_empty
   end
 
 end

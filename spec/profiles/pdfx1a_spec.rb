@@ -7,7 +7,7 @@ describe Preflight::Profiles::PDFX1A do
     preflight = Preflight::Profiles::PDFX1A.new
     messages  = preflight.check(filename)
 
-    messages.empty?.should be_true
+    expect(messages.empty?).to be(true)
   end
 
   it "correctly pass a valid PDF/X-1a file that doesn't use font subsetting" do
@@ -15,7 +15,7 @@ describe Preflight::Profiles::PDFX1A do
     preflight = Preflight::Profiles::PDFX1A.new
     messages  = preflight.check(filename)
 
-    messages.empty?.should be_true
+    expect(messages.empty?).to be(true)
   end
 
   it "correctly detect files with an incompatible version" do
@@ -23,7 +23,7 @@ describe Preflight::Profiles::PDFX1A do
     preflight = Preflight::Profiles::PDFX1A.new
     messages  = preflight.check(filename)
 
-    messages.empty?.should_not be_true
+    expect(messages.empty?).to be(false)
   end
 
   it "correctly detect encrypted files with a blank user password" do
@@ -31,7 +31,7 @@ describe Preflight::Profiles::PDFX1A do
     preflight = Preflight::Profiles::PDFX1A.new
     messages  = preflight.check(filename)
 
-    messages.should eql(["Can't preflight an encrypted PDF"])
+    expect(messages).to eql(["Can't preflight an encrypted PDF"])
   end
 
   it "correctly detect encrypted files with a user password" do
@@ -39,7 +39,7 @@ describe Preflight::Profiles::PDFX1A do
     preflight = Preflight::Profiles::PDFX1A.new
     messages  = preflight.check(filename)
 
-    messages.should eql(["Can't preflight an encrypted PDF"])
+    expect(messages).to eql(["Can't preflight an encrypted PDF"])
   end
 
   it "should fail files that use object streams"

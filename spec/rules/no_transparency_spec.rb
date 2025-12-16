@@ -11,15 +11,15 @@ describe Preflight::Rules::NoTransparency do
       PDF::Reader.open(filename) do |reader|
         reader.page(2).walk(rule)
 
-        rule.issues.should have(1).item
+        expect(rule.issues.size).to eq(1)
 
         issue = rule.issues.first
-        issue.rule.should         == :"Preflight::Rules::NoTransparency"
-        issue.page.should         == 2
-        issue.top_left.should     == [99.0, 540.89]
-        issue.bottom_left.should  == [99.0, 742.89]
-        issue.bottom_right.should == [301.0, 742.89]
-        issue.top_right.should    == [301.0, 540.89]
+        expect(issue.rule).to eq(:"Preflight::Rules::NoTransparency")
+        expect(issue.page).to eq(2)
+        expect(issue.top_left).to eq([99.0, 540.89])
+        expect(issue.bottom_left).to eq([99.0, 742.89])
+        expect(issue.bottom_right).to eq([301.0, 742.89])
+        expect(issue.top_right).to eq([301.0, 540.89])
       end
     end
   end
@@ -32,7 +32,7 @@ describe Preflight::Rules::NoTransparency do
 
       PDF::Reader.open(filename) do |reader|
         reader.page(1).walk(rule)
-        rule.issues.should be_empty
+        expect(rule.issues).to be_empty
       end
     end
   end

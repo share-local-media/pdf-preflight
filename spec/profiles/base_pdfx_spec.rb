@@ -10,7 +10,7 @@ describe Preflight::Profiles::BasePDFX do
       let(:file_string) { 'pdfx-1a-subsetting' }
 
       it "correctly pass a valid PDF/X-1a file that uses font subsetting" do
-        results.empty?.should be_true
+        expect(results.empty?).to be(true)
       end
     end
 
@@ -18,7 +18,7 @@ describe Preflight::Profiles::BasePDFX do
       let(:file_string) { 'pdfx-1a-no-subsetting' }
 
       it "correctly pass a valid PDF/X-1a file that doesn't use font subsetting" do
-        results.empty?.should be_true
+        expect(results.empty?).to be(true)
       end
     end
 
@@ -26,7 +26,7 @@ describe Preflight::Profiles::BasePDFX do
       let(:file_string) { 'version_1_4' }
 
       it "correctly detect files with an incompatible version" do
-        results.empty?.should_not be_true
+        expect(results.empty?).to be(false)
       end
     end
 
@@ -34,7 +34,7 @@ describe Preflight::Profiles::BasePDFX do
       let(:file_string) { 'encrypted' }
 
       it "correctly detect encrypted files" do
-        results.should eql(["Can't preflight an encrypted PDF"])
+        expect(results).to eql(["Can't preflight an encrypted PDF"])
       end
     end
 
@@ -42,7 +42,7 @@ describe Preflight::Profiles::BasePDFX do
       let(:file_string) { 'encrypted_with_user_pass_apples' }
 
       it "correctly detect encrypted files with a user password" do
-        results.should eql(["Can't preflight an encrypted PDF"])
+        expect(results).to eql(["Can't preflight an encrypted PDF"])
       end
     end
 
@@ -55,7 +55,7 @@ describe Preflight::Profiles::BasePDFX do
 
     context 'without subsettings' do
       it "correctly pass a valid PDF/X-4 file that doesn't use font subsetting" do
-        results.empty?.should be_true
+        expect(results.empty?).to be(true)
       end
     end
   end

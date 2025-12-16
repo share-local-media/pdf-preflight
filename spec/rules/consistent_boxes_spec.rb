@@ -10,7 +10,7 @@ describe Preflight::Rules::ConsistentBoxes do
       reader.pages.each do |page|
         page.walk(rule)
       end
-      rule.issues.should be_empty
+      expect(rule.issues).to be_empty
     end
   end
 
@@ -22,7 +22,7 @@ describe Preflight::Rules::ConsistentBoxes do
       reader.pages.each do |page|
         page.walk(rule)
       end
-      rule.issues.should_not be_empty
+      expect(rule.issues).not_to be_empty
     end
   end
 
@@ -35,7 +35,7 @@ describe Preflight::Rules::ConsistentBoxes do
       reader.pages.each do |page|
         page.walk(rule)
       end
-      rule.issues.should be_empty
+      expect(rule.issues).to be_empty
     end
   end
 

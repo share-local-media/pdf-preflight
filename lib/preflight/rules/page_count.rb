@@ -31,7 +31,7 @@ module Preflight
         count = objects.deref(pages[:Count])
 
         case @pattern
-        when Fixnum then check_numeric(count)
+        when Integer then check_numeric(count)
         when Range  then check_range(count)
         when Array  then check_array(count)
         when :even  then check_even(count)

@@ -1,3 +1,11 @@
+v0.4.0 (16th Dec 2025)
+- upgrade rspec to 3.x
+- upgrade rspec syntax to 3.x matchers
+- update mininum Ruby version to 2.5.x
+- remove rdoc - it is incompatible with ruby 3.4.x and rubygem 4.x
+- include BigDecimal as a gem as of ruby 2.5 it is no longer included in the standard library
+- include Matrix as a gem as of ruby 2.6 it is no longer included in the standard library
+
 v0.3.0 (28th April 2013)
 - new rules
 - improved the behaviour of some rules

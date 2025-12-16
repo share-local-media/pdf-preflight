@@ -7,7 +7,7 @@ describe Preflight::Rules::InfoHasKeys do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     chk      = Preflight::Rules::InfoHasKeys.new(:Title)
 
-    chk.check_hash(ohash).should_not be_empty
+    expect(chk.check_hash(ohash)).to_not be_empty
   end
 
   it "pass files with a Title entry in the Info dict" do
@@ -15,7 +15,7 @@ describe Preflight::Rules::InfoHasKeys do
     ohash    = PDF::Reader::ObjectHash.new(filename)
     chk      = Preflight::Rules::InfoHasKeys.new(:Title)
 
-    chk.check_hash(ohash).should be_empty
+    expect(chk.check_hash(ohash)).to be_empty
   end
 
 end

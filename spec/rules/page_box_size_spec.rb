@@ -11,7 +11,7 @@ describe Preflight::Rules::PageBoxSize do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should be_empty
+      expect(rule.issues).to be_empty
     end
   end
 
@@ -24,7 +24,7 @@ describe Preflight::Rules::PageBoxSize do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should be_empty
+      expect(rule.issues).to be_empty
     end
   end
 
@@ -37,7 +37,7 @@ describe Preflight::Rules::PageBoxSize do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should_not be_empty
+      expect(rule.issues).to_not be_empty
     end
   end
 
@@ -50,7 +50,7 @@ describe Preflight::Rules::PageBoxSize do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should_not be_empty
+      expect(rule.issues).to_not be_empty
     end
   end
 
@@ -63,7 +63,7 @@ describe Preflight::Rules::PageBoxSize do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should be_empty
+      expect(rule.issues).to be_empty
     end
   end
 
@@ -76,7 +76,7 @@ describe Preflight::Rules::PageBoxSize do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should be_empty
+      expect(rule.issues).to be_empty
     end
   end
 
@@ -89,7 +89,7 @@ describe Preflight::Rules::PageBoxSize do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should_not be_empty
+      expect(rule.issues).to_not be_empty
     end
   end
 
@@ -102,7 +102,7 @@ describe Preflight::Rules::PageBoxSize do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should_not be_empty
+      expect(rule.issues).to_not be_empty
     end
   end
 
@@ -115,20 +115,20 @@ describe Preflight::Rules::PageBoxSize do
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should be_empty
+      expect(rule.issues).to be_empty
     end
   end
 
   it "should pass files with a box that isn't present" do
     filename = pdf_spec_file("pdfx-1a-subsetting")
     rule     = Preflight::Rules::PageBoxSize.new(:ArtBox,
-                                                 :width => 10, 
-                                                 :height => 10, 
+                                                 :width => 10,
+                                                 :height => 10,
                                                  :units => :mm)
 
     PDF::Reader.open(filename) do |reader|
       reader.page(1).walk(rule)
-      rule.issues.should be_empty
+      expect(rule.issues).to be_empty
     end
   end
 

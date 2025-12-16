@@ -21,7 +21,7 @@ describe "Customised profile" do
     preflight = CustomProfile.new
     messages  = preflight.check(filename)
 
-    messages.should_not be_empty
+    expect(messages).not_to be_empty
   end
 
   it "pass files with an equal version" do
@@ -29,7 +29,7 @@ describe "Customised profile" do
     preflight = CustomProfile.new
     messages  = preflight.check(filename)
 
-    messages.should be_empty
+    expect(messages).to be_empty
   end
 
   it "fail files with a low ppi" do
@@ -37,7 +37,7 @@ describe "Customised profile" do
     preflight = PpiProfile.new
     messages  = preflight.check(filename)
 
-    messages.should_not be_empty
+    expect(messages).not_to be_empty
   end
 
   it "pass files with high ppi" do
@@ -45,7 +45,7 @@ describe "Customised profile" do
     preflight = PpiProfile.new
     messages  = preflight.check(filename)
 
-    messages.should be_empty
+    expect(messages).to be_empty
   end
 
 end
