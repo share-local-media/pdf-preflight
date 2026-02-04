@@ -7,7 +7,6 @@ Gem::Specification.new do |s|
   s.author            = "James Healy"
   s.email             = ["james@yob.id.au"]
   s.homepage          = "http://github.com/yob/pdf-preflight"
-  s.has_rdoc          = true
   s.rdoc_options      << "--title" << "PDF::Preflight" << "--line-numbers"
   s.files             = Dir.glob("lib/**/*") + Dir.glob("bin/*") + ["README.rdoc", "CHANGELOG"]
   s.executables       << "is_pdfx_1a"
